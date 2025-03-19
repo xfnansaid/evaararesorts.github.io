@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munnar Resort Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header style="background: url('https://example.com/munnar-bg.jpg') center/cover fixed;">
+        <div class="logo">Evaara Resorts</div>
+        <nav>
+            <div class="hamburger">☰</div>
+            <ul class="nav-menu">
+                <li><a href="index.html"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="category-filter">
+            <button class="category-btn active" data-category="all" aria-label="View All Gallery">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#D4A017" d="M3 3h18v18H3z"/></svg> All
+            </button>
+            <button class="category-btn" data-category="rooms" aria-label="View Rooms Gallery">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#D4A017" d="M4 6h16v12H4z"/></svg> Rooms
+            </button>
+            <button class="category-btn" data-category="spa" aria-label="View Spa Gallery">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#D4A017" d="M12 2a10 10 0 00-10 10h20a10 10 0 00-10-10z"/></svg> Spa
+            </button>
+            <button class="category-btn" data-category="restaurants" aria-label="View Restaurants Gallery">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#D4A017" d="M7 2h10v20H7z"/></svg> Restaurants
+            </button>
+            <button class="category-btn" data-category="outdoors" aria-label="View Outdoors Gallery">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#D4A017" d="M12 2l10 20H2L12 2z"/></svg> Outdoors
+            </button>
+            <button class="category-btn" data-category="lobby" aria-label="View Lobby Gallery">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#D4A017" d="M2 2h20v20H2z"/></svg> Lobby
+            </button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Gallery items will be dynamically added via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="script.js"></script>
+
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #F5F5F5 url('https://example.com/noise-texture.png') repeat;
+            background-size: 200px 200px;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: url('https://example.com/munnar-bg.jpg') center/cover fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            z-index: 1000;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #D4A017;
+            animation: pulse 2s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            z-index: 1;
+        }
+
+        .nav-menu li {
+            margin-left: 20px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 40px 40px;
+        }
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .category-btn {
+            background: none;
+            border: 2px solid #D4A017;
+            color: #D4A017;
+            padding: 10px 20px;
+            margin: 0 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .category-btn svg {
+            margin-right: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .category-btn:hover svg {
+            transform: scale(1.2);
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: #1A3C34;
+            border-color: #1A3C34;
+            color: #D4A017;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+            border: 1px solid #D4A017;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item .caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1) saturate(1.2);
+        }
+
+        .gallery-item:hover .caption {
+            opacity: 1;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeZoom {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideGlow {
+            from { opacity: 0; transform: translateX(-20px); filter: brightness(0.8); }
+            to { opacity: 1; transform: translateX(0); filter: brightness(1); }
+        }
+
+        @keyframes cascade {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { opacity: 0; filter: brightness(1.2); }
+            50% { opacity: 0.5; filter: brightness(1.5); }
+            100% { opacity: 1; filter: brightness(1); }
+        }
+
+        @keyframes rotateFade {
+            from { opacity: 0; transform: rotate(5deg); }
+            to { opacity: 1; transform: rotate(0); }
+        }
+
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hamburger {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 40px;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 10px;
+                border: 1px solid #D4A017;
+                animation: dropdown 0.3s ease-in-out;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            @keyframes dropdown {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .category-filter {
+                flex-wrap: wrap;
+            }
+            .category-btn {
+                margin: 5px;
+            }
+        }
+    </style>
+
+    <script>
+        // Initialize AOS for scroll animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+        });
+
+        // Sample gallery data (replace with actual image URLs)
+const galleryData = {
+    all: [
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Executive_Suite_01.jpg', caption: 'Luxury Suite', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_02.jpg', caption: 'Serenity Spa', category: 'spa' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Random_14.jpg', caption: 'Fine Dining', category: 'restaurants' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/05/SPA-TREATMENT-ROOM.jpg', caption: 'Munnar Views', category: 'outdoors' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Deluxe_Room_02.jpg', caption: 'Grand Lobby', category: 'lobby' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_06.jpg', caption: 'Family Room', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Executive_Suite_01.jpg', caption: 'Luxury Suite', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_02.jpg', caption: 'Serenity Spa', category: 'spa' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Random_14.jpg', caption: 'Fine Dining', category: 'restaurants' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/05/SPA-TREATMENT-ROOM.jpg', caption: 'Munnar Views', category: 'outdoors' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Deluxe_Room_02.jpg', caption: 'Grand Lobby', category: 'lobby' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_06.jpg', caption: 'Family Room', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Executive_Suite_01.jpg', caption: 'Luxury Suite', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_02.jpg', caption: 'Serenity Spa', category: 'spa' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Random_14.jpg', caption: 'Fine Dining', category: 'restaurants' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/05/SPA-TREATMENT-ROOM.jpg', caption: 'Munnar Views', category: 'outdoors' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Deluxe_Room_02.jpg', caption: 'Grand Lobby', category: 'lobby' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_06.jpg', caption: 'Family Room', category: 'rooms' }
+    ],
+    rooms: [
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Executive_Suite_01.jpg', caption: 'Luxury Suite', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/05/FAMILY-ROOM-13.jpg', caption: 'Family Room', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Cafe_7.jpg', caption: 'Luxury Suite', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Lobby_1.jpg', caption: 'Family Room', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_04.jpg', caption: 'Luxury Suite', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_03.jpg', caption: 'Family Room', category: 'rooms' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/04/Executive_Suite_04.jpg', caption: 'Luxury Suite', category: 'rooms' },
+    ],
+    spa: [
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Executive_Suite_01.jpg', caption: 'Luxury Suite', category: 'spa' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/05/FAMILY-ROOM-13.jpg', caption: 'Family Room', category: 'spa' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Cafe_7.jpg', caption: 'Luxury Suite', category: 'spa' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Lobby_1.jpg', caption: 'Family Room', category: 'spa' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_04.jpg', caption: 'Luxury Suite', category: 'spa' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_03.jpg', caption: 'Family Room', category: 'spa' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/04/Executive_Suite_04.jpg', caption: 'Luxury Suite', category: 'spa' },
+    ],
+    restaurants: [
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Executive_Suite_01.jpg', caption: 'Luxury Suite', category: 'restaurants' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/05/FAMILY-ROOM-13.jpg', caption: 'Family Room', category: 'restaurants' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Cafe_7.jpg', caption: 'Luxury Suite', category: 'restaurants' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Lobby_1.jpg', caption: 'Family Room', category: 'restaurants' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_04.jpg', caption: 'Luxury Suite', category: 'restaurants' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_03.jpg', caption: 'Family Room', category: 'restaurants' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/04/Executive_Suite_04.jpg', caption: 'Luxury Suite', category: 'restaurants' },
+    ],
+    outdoors: [
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Executive_Suite_01.jpg', caption: 'Luxury Suite', category: 'outdoors' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/05/FAMILY-ROOM-13.jpg', caption: 'Family Room', category: 'outdoors' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Cafe_7.jpg', caption: 'Luxury Suite', category: 'outdoors' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Lobby_1.jpg', caption: 'Family Room', category: 'outdoors' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_04.jpg', caption: 'Luxury Suite', category: 'outdoors' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_03.jpg', caption: 'Family Room', category: 'outdoors' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/04/Executive_Suite_04.jpg', caption: 'Luxury Suite', category: 'outdoors' },
+    ],
+    lobby: [
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Executive_Suite_01.jpg', caption: 'Luxury Suite', category: 'lobby' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/05/FAMILY-ROOM-13.jpg', caption: 'Family Room', category: 'lobby' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Cafe_7.jpg', caption: 'Luxury Suite', category: 'lobby' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Lobby_1.jpg', caption: 'Family Room', category: 'lobby' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_04.jpg', caption: 'Luxury Suite', category: 'lobby' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2023/02/Underground_Lounge_03.jpg', caption: 'Family Room', category: 'lobby' },
+        { src: 'https://thepanoramicgetaway.in/wp-content/uploads/2019/04/Executive_Suite_04.jpg', caption: 'Luxury Suite', category: 'lobby' },
+    ]
+};
+        // Function to render gallery items with category-specific animations
+        function renderGallery(category) {
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.innerHTML = '';
+
+            const items = galleryData[category];
+            const animationMap = {
+                rooms: 'fadeZoom', spa: 'slideGlow', restaurants: 'cascade',
+                outdoors: 'shimmer', lobby: 'rotateFade', all: 'fadeZoom'
+            };
+
+            items.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.classList.add('gallery-item');
+                div.setAttribute('data-aos', 'fade-up');
+                div.setAttribute('data-aos-delay', index * 100);
+                div.style.animation = `${animationMap[category]} 0.5s forwards`;
+                div.innerHTML = `
+                    <a href="${item.src}" data-lightbox="gallery" data-title="${item.caption}">
+                        <img src="${item.src}" alt="${item.caption}" loading="lazy">
+                        <div class="caption">${item.caption}</div>
+                    </a>
+                `;
+                galleryGrid.appendChild(div);
+            });
+        }
+
+        // Initial render
+        renderGallery('all');
+
+        // Category filter event listeners
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const category = button.getAttribute('data-category');
+                const galleryGrid = document.getElementById('galleryGrid');
+                
+                // Fade out current items
+                galleryGrid.classList.add('fade-out');
+                setTimeout(() => {
+                    renderGallery(category);
+                    galleryGrid.classList.remove('fade-out');
+                }, 500);
+            });
+
+            // Keyboard accessibility
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') button.click();
+            });
+        });
+
+        // Hamburger menu toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
