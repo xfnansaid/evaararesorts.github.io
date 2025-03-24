@@ -209,7 +209,39 @@
   
   };
 
-  // Map
+// Navbar Scroll Effect
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.site-header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.js-site-menu-toggle');
+  const navbar = document.querySelector('.js-site-navbar');
+  const header = document.querySelector('.js-site-header');
   
+  menuToggle.addEventListener('click', function() {
+    navbar.classList.toggle('active');
+    header.classList.toggle('menu-open');
+  });
+  
+  // Close menu when clicking on a link
+  const navLinks = document.querySelectorAll('.site-navbar .menu li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 991.98) {
+        navbar.classList.remove('active');
+        header.classList.remove('menu-open');
+      }
+    });
+  });
+});
+
+
 
 })(jQuery);
