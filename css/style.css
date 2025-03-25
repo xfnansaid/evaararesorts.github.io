@@ -1,5 +1,5 @@
 :root {
-    --primary: #31933E; /* Green for buttons, links, etc. */
+    --primary: #41963B; /* Green for buttons, links, etc. */
     --secondary: #818181; /* Grey for secondary elements */
     --light: #FFFFFF; /* White for backgrounds and text */
     --dark: #000000; /* Keep black for text and borders */
@@ -15,11 +15,11 @@ body {
 
 ::-moz-selection {
   color: #fff;
-  background: #C5A567; }
+  background: #41963B; }
 
 ::selection {
   color: #fff;
-  background: #C5A567; }
+  background: #41963B; }
 
 a {
   -webkit-transition: .3s all ease;
@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5 {
     border: 2px solid #fff; }
     .btn.btn-outline-white-primary:hover {
       border: 2px solid transparent;
-      background: #C5A567;
+      background: #41963B;
       color: #fff; }
   .btn.uppercase {
     text-transform: uppercase;
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5 {
   height: 50px;
   border-width: 2px; }
   .form-control:active, .form-control:focus {
-    border-color: #C5A567; }
+    border-color: #41963B; }
 
 textarea.form-control {
   height: inherit; }
@@ -197,7 +197,7 @@ textarea.form-control {
   position: absolute;
   width: 0;
   height: 2px;
-  background: #D4AF37;
+  background: #41963B;
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
@@ -213,7 +213,7 @@ textarea.form-control {
 }
 
 .reservation-link {
-  background: #D4AF37;
+  background: #41963B;
   color: #fff !important;
   padding: 8px 20px !important;
   border-radius: 4px;
@@ -221,7 +221,7 @@ textarea.form-control {
 }
 
 .reservation-link:hover {
-  background: #000000;
+  background: #ffffff;
   transform: translateY(-2px);
 }
 
@@ -277,12 +277,12 @@ textarea.form-control {
   
   .site-navbar .menu li.active a,
   .site-navbar .menu li a:hover {
-    color: #D4AF37;
+    color: #41963B;
   }
   
   .reservation-link {
     background: transparent;
-    color: #D4AF37 !important;
+    color: #41963B !important;
     padding: 10px 20px !important;
     font-weight: 600;
   }
@@ -474,7 +474,7 @@ textarea.form-control {
 .visit-section .visit a {
   color: #000; }
   .visit-section .visit a:hover {
-    color: #C5A567; }
+    color: #41963B; }
 
 .visit-section .visit img {
   -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
@@ -487,7 +487,7 @@ textarea.form-control {
 
 .visit-section .reviews-star span {
   font-size: 18px;
-  color: #C5A567; }
+  color: #41963B; }
 
 .visit-section .reviews-count {
   color: #adb5bd;
@@ -554,7 +554,7 @@ textarea.form-control {
   .post .media-custom a {
     color: #000; }
     .post .media-custom a:hover {
-      color: #C5A567; }
+      color: #41963B; }
   .post .media-custom .media-body {
     padding: 10px 30px; }
   .post .media-custom h2 {
@@ -746,7 +746,7 @@ textarea.form-control {
     background: #e9ecef;
     display: inline-block; }
   .owl-carousel.js-carousel-2 .owl-dots .owl-dot.active > span {
-    background: #C5A567; }
+    background: #41963B; }
   .owl-carousel.js-carousel-2 .owl-dots .owl-dot:active, .owl-carousel.js-carousel-2 .owl-dots .owl-dot:focus, .owl-carousel.js-carousel-2 .owl-dots .owl-dot:hover {
     outline: none; }
 
@@ -902,7 +902,7 @@ textarea.form-control {
   margin-bottom: 10px; }
 
 .custom-pagination .page-item.active .page-link {
-  background: #C5A567;
+  background: #41963B;
   -webkit-box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2); }
 
@@ -1014,7 +1014,7 @@ textarea.form-control {
     display: block;
     border-radius: 50%;
     opacity: 1;
-    color: #C5A567 !important; }
+    color: #41963B !important; }
     .site-block-half.site-block-video .image .play-button:hover {
       opacity: 1; }
     .site-block-half.site-block-video .image .play-button > span {
@@ -1414,7 +1414,7 @@ textarea.form-control {
         font-size: 1.2rem;
         line-height: 47px; }
       .custom-pagination ul li.active span {
-        background: #C5A567;
+        background: #41963B;
         color: #fff;
         border-radius: 50%; }
 
@@ -1565,7 +1565,7 @@ textarea.form-control {
   transform: translateX(-50%);
   width: 50px;
   height: 3px;
-  background-color: #D4A017; /* Gold underline */
+  background-color: #41963B; /* Gold underline */
 }
 
 .amenities-section p {
@@ -1588,7 +1588,7 @@ textarea.form-control {
 
 .amenity-item .gold-icon {
   font-size: 40px;
-  color: #D4A017; /* Gold finish for icons */
+  color: #41963B; /* Gold finish for icons */
   margin-bottom: 15px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
