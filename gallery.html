@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaara Resorts - Gallery</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/fancybox.min.css">
+    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <!-- Chatbot -->
+    <script> window.chtlConfig = { chatbotId: "2357743244" } </script>
+    <script async data-id="2357743244" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
+    <!-- End chatbot -->
+
+    <header class="site-header js-site-header">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <!-- Logo -->
+          <div class="col-6 col-lg-4 site-logo" data-aos="fade">
+            <a href="index.html">
+              <img src="img/Logo-kiki-removebg-preview.png" alt="Evaara Resorts Logo" style="width: 100px; height: 50px;" class="header-logo">
+            </a>
+          </div>
+    
+          <!-- Navigation -->
+          <div class="col-6 col-lg-8">
+            <div class="site-menu-toggle js-site-menu-toggle" data-aos="fade">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+    
+            <div class="site-navbar js-site-navbar">
+              <nav role="navigation">
+                <div class="container">
+                  <div class="row align-items-center">
+                    <div class="col-md-12">
+                      <ul class="list-unstyled menu header-menu">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="active"><a href="gallery.html">Gallery</a></li>
+                        <li><a href="rooms.html">Rooms</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://wa.me/919544388665" class="reservation-link">Reservation</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <style>
+      /* Header scroll effect styles */
+      .site-header {
+        transition: all 0.3s ease;
+        background-color: transparent;
+      }
+      
+      .site-header.scrolled {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .header-logo {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.4s ease;
+      }
+      
+      .scrolled .header-logo {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .header-menu li a {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.4s ease;
+        transition-delay: calc(0.05s * var(--item-index));
+      }
+      
+      .scrolled .header-menu li a {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+
+<script>
+  // Set menu item indices for staggered animation
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = document.querySelectorAll('.header-menu li');
+    menuItems.forEach((item, index) => {
+      item.style.setProperty('--item-index', index);
+    });
+    
+    // Initial check for scroll position
+    checkScroll();
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', checkScroll);
+    
+    function checkScroll() {
+      const header = document.querySelector('.site-header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+  });
+</script>
+
+    <!-- Page Title Section -->
+    <section class="site-hero inner-page overlay" style="background-image: url(img/32.webp);" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row site-hero-inner justify-content-center align-items-center">
+                <div class="col-md-10 text-center" data-aos="fade-up">
+                    <h1 class="heading mb-3">Gallery</h1>
+                    <ul class="custom-breadcrumbs mb-4">
+                        <li><a style="color: #45e439;" href="index.html">Home</a></li>
+                        <li>&bullet;</li>
+                        <li>Gallery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://kit.fontawesome.com/5941e23361.js" crossorigin="anonymous"></script>
+
+    <!-- Gallery Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-md-8">
+                    <h2 class="heading" data-aos="fade-up">Explore Our Resort</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Discover the beauty and luxury of Evaara Resorts through our stunning gallery. Each image captures the essence of tranquility and elegance that defines our property.</p>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="row mb-5">
+                <div class="col-md-12 text-center">
+                    <div class="gallery-filter" data-aos="fade-up">
+                        <button class="btn btn-gallery active" data-filter="all">
+                            <span class="filter-icon"><i class="fa fa-th"></i></span> All
+                        </button>
+                        <button class="btn btn-gallery" data-filter="rooms">
+                            <span class="filter-icon"><i class="fa fa-bed"></i></span> Rooms
+                        </button>
+                        <button class="btn btn-gallery" data-filter="restaurants">
+                            <span class="filter-icon"><i class="fa fa-utensils"></i></span> Restaurants
+                        </button>
+                        <button class="btn btn-gallery" data-filter="spa">
+                            <span class="filter-icon"><i class="fa fa-tree"></i></span> Outdoors
+                        </button>
+                        <button class="btn btn-gallery" data-filter="outdoors">
+                            <span class="filter-icon"><i class="fa-solid fa-person-swimming"></i></i></span> Pool
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="row" id="galleryGrid">
+                <!-- Gallery items will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="section bg-image overlay" style="background-image: url('img/37.webp');">
+        <div class="container" >
+          <div class="row align-items-center">
+            <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
+              <h2 class="text-white font-weight-bold">Book your stay now !!!</h2>
+            </div>
+            <div class="col-12 col-md-6 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
+              <a href="https://wa.me/919544388665" class="btn btn-outline-white-primary py-3 text-white px-5">Reserve Now</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <footer class="premium-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="footer-brand">
+                <img src="img/Logo-kiki-removebg-preview.png" alt="Evaara Resorts" class="footer-logo">
+                <p>Every stay with us is a memorable experience</p>
+              </div>
+              <div class="footer-social">
+                <a href="https://www.instagram.com/evaararesortsmunnar/"><i class="fa fa-instagram"></i></a>
+              </div>
+            </div>
+            
+            <div class="col-lg-2 col-md-4">
+              <h4>Explore</h4>
+              <ul class="footer-links">
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            
+            <div class="col-lg-2 col-md-4">
+              <h4>Policies</h4>
+              <ul class="footer-links">
+                <li><a href="T&C.html">Terms & Conditions</a></li>
+                <li><a href="privacy.html#cancellation">Cancellation</a></li>
+              </ul>
+            </div>
+            
+            <div class="col-lg-4 col-md-4">
+              <h4>Contact</h4>
+              <ul class="footer-contact">
+                <li><i class="fa fa-map-marker"></i> Eetti City, Anachal, Munnar, Kerala</li>
+                <li><i class="fa fa-phone"></i> <a href="tel:+919544388665">+91 95443 88665</a></li>
+                <li><i class="fa fa-envelope"></i> <a href="mailto:evararesortsmunnar@gmail.com">evararesortsmunnar@gmail.com</a></li>
+              </ul>
+              
+              <div class="footer-newsletter">
+                <h5>Subscribe to our newsletter</h5>
+                <form action="#">
+                  <div class="input-group">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <div class="copyright">
+            &copy; <span id="current-year"></span> Evaara Resorts. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .premium-footer {
+        background-color: #2c2c2c;
+        color: #fff;
+        padding: 70px 0 20px;
+        font-family: 'Open Sans', sans-serif;
+      }
+      
+      .footer-top {
+        margin-bottom: 40px;
+      }
+      
+      .footer-brand {
+        margin-bottom: 25px;
+      }
+      
+      .footer-logo {
+        height: 50px;
+        margin-bottom: 15px;
+      }
+      
+      .footer-brand p {
+        color: #ccc;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      
+      .footer-social {
+        margin-top: 20px;
+      }
+      
+      .footer-social a {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background-color: rgba(255,255,255,0.1);
+        color: #fff;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 36px;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+      }
+      
+      .footer-social a:hover {
+        background-color: #41963B;
+        transform: translateY(-3px);
+      }
+      
+      .premium-footer h4 {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      .premium-footer h4:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        height: 2px;
+        background-color: #41963B;
+      }
+      
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+      
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 14px;
+      }
+      
+      .footer-links a:hover {
+        color: #41963B;
+        padding-left: 5px;
+      }
+      
+      .footer-contact {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .footer-contact li {
+        margin-bottom: 15px;
+        color: #ccc;
+        font-size: 14px;
+        display: flex;
+        align-items: flex-start;
+      }
+      
+      .footer-contact li i {
+        color: #41963B;
+        margin-right: 10px;
+        font-size: 16px;
+        width: 16px;
+      }
+      
+      .footer-contact a {
+        color: #ccc;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      
+      .footer-contact a:hover {
+        color: #41963B;
+      }
+      
+      .footer-newsletter {
+        margin-top: 25px;
+      }
+      
+      .footer-newsletter h5 {
+        font-size: 14px;
+        margin-bottom: 15px;
+        color: #fff;
+      }
+      
+      .footer-newsletter .input-group {
+        display: flex;
+        position: relative;
+      }
+      
+      .footer-newsletter input {
+        height: 40px;
+        background-color: rgba(255,255,255,0.1);
+        border: none;
+        color: #fff;
+        padding: 0 15px;
+        width: 100%;
+        border-radius: 4px 0 0 4px;
+      }
+      
+      .footer-newsletter input:focus {
+        outline: none;
+      }
+      
+      .footer-newsletter input::placeholder {
+        color: #aaa;
+      }
+      
+      .footer-newsletter button {
+        background-color: #41963B;
+        border: none;
+        color: #fff;
+        height: 40px;
+        width: 40px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .footer-newsletter button:hover {
+        background-color: #357a30;
+      }
+      
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 20px;
+        text-align: center;
+      }
+      
+      .copyright {
+        color: #aaa;
+        font-size: 13px;
+      }
+      
+      @media (max-width: 991px) {
+        .premium-footer h4 {
+          margin-top: 30px;
+        }
+        
+        .footer-brand {
+          text-align: center;
+        }
+        
+        .footer-social {
+          text-align: center;
+        }
+      }
+    </style>
+    
+    <script>
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/5c9be30430.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* Custom Gallery Styles */
+        .btn-gallery {
+            background-color: white;
+            color: #333;
+            border: 2px solid #41963B;
+            margin: 0 5px 10px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .btn-gallery:hover, .btn-gallery.active {
+            background-color: #41963B;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(65, 150, 59, 0.3);
+        }
+
+        .filter-icon {
+            margin-right: 8px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-gallery:hover .filter-icon {
+            transform: scale(1.2);
+        }
+
+        #galleryGrid {
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.8) saturate(1.2);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px 15px 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .gallery-item img {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .gallery-filter {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .btn-gallery {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .gallery-item img {
+                height: 200px;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(20px); }
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+
+            // Gallery data
+            const galleryData = {
+                all: [
+                    { src: 'img/32.webp', caption: 'Outdoor', category: 'all' },
+                    { src: 'img/01.webp', caption: 'Outdoor', category: 'all' },
+                    { src: 'img/34.webp', caption: 'Pool', category: 'lobby' },
+                    { src: 'img/35.webp', caption: 'Outdoor', category: 'all' },
+                    { src: 'img/40.webp', caption: 'Room', category: 'rooms' },
+                    { src: 'img/42.webp', caption: 'Room', category: 'rooms' },
+                    { src: 'img/49.webp', caption: 'Room', category: 'rooms' },
+                    { src: 'img/45.webp', caption: 'Room', category: 'rooms' },
+                    { src: 'img/56.webp', caption: 'Restaurants', category: 'restaurants' },
+                    { src: 'img/58.webp', caption: 'Restaurants', category: 'restaurants' },
+                    { src: 'img/62.webp', caption: 'Restaurants', category: 'restaurants' },
+                    { src: 'img/32.webp', caption: 'pool', category: 'spa' },
+                ],
+                rooms: [
+                    { src: 'img/49.webp', caption: '', category: 'rooms' },
+                    { src: 'img/43.webp', caption: '', category: 'rooms' },
+                    { src: 'img/44.webp', caption: '', category: 'rooms' },
+                    { src: 'img/45.webp', caption: '', category: 'rooms' },
+                    { src: 'img/47.webp', caption: '', category: 'rooms' },
+                    { src: 'img/50.webp', caption: '', category: 'rooms' },
+                    { src: 'img/51.webp', caption: '', category: 'rooms' },
+                    { src: 'img/54.webp', caption: '', category: 'rooms' },
+                    { src: 'img/53.webp', caption: '', category: 'rooms' },
+                    { src: 'img/55.webp', caption: '', category: 'rooms' },
+                    { src: 'img/41.webp', caption: '', category: 'rooms' },
+                    { src: 'img/40.webp', caption: '', category: 'rooms' },
+                    { src: 'img/38.webp', caption: '', category: 'rooms' },
+                    { src: 'img/17.webp', caption: '', category: 'rooms' },
+                ],
+                restaurants: [
+                    { src: 'img/25.webp', caption: '', category: 'restaurants' },
+                    { src: 'img/26.webp', caption: '', category: 'restaurants' },
+                    { src: 'img/27.webp', caption: '', category: 'restaurants' },
+                    { src: 'img/28.webp', caption: '', category: 'restaurants' },
+                    { src: 'img/29.webp', caption: '', category: 'restaurants' },
+                    { src: 'img/30.webp', caption: '', category: 'restaurants' },
+                    { src: 'img/31.webp', caption: '', category: 'restaurants' },
+                ],
+                outdoors: [
+                    { src: 'img/03.webp', caption: '', category: 'outdoors' },
+                    { src: 'img/34.webp', caption: '', category: 'outdoors' },
+                    { src: 'img/02.webp', caption: '', category: 'outdoors' },
+                ],
+                spa: [
+                    { src: 'img/33.webp', caption: '', category: 'spa' },
+                    { src: 'img/32.webp', caption: '', category: 'spa' },
+                    { src: 'img/35.webp', caption: '', category: 'spa' },
+                    { src: 'img/01.webp', caption: '', category: 'spa' },
+                ]
+            };
+
+            // Function to render gallery items
+            function renderGallery(category) {
+                const galleryGrid = $('#galleryGrid');
+                galleryGrid.addClass('fade-out');
+                
+                setTimeout(() => {
+                    galleryGrid.empty();
+                    
+                    const items = galleryData[category];
+                    
+                    items.forEach((item, index) => {
+                        const delay = index * 100;
+                        const colClass = window.innerWidth >= 992 ? 'col-lg-3' : 
+                                        window.innerWidth >= 768 ? 'col-md-4' : 
+                                        window.innerWidth >= 576 ? 'col-sm-6' : 'col-12';
+                        
+                        const galleryItem = $(`
+                            <div class="${colClass} col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="${delay}" data-category="${item.category}">
+                                <div class="gallery-item">
+                                    <a href="${item.src}" data-fancybox="gallery" data-caption="${item.caption}">
+                                        <img src="${item.src}" alt="${item.caption}" class="img-fluid">
+                                        <div class="gallery-caption">${item.caption}</div>
+                                    </a>
+                                </div>
+                            </div>
+                        `);
+                        
+                        galleryGrid.append(galleryItem);
+                    });
+                    
+                    galleryGrid.removeClass('fade-out').addClass('fade-in');
+                    
+                    // Initialize Fancybox for the new items
+                    $('[data-fancybox="gallery"]').fancybox({
+                        buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
+                        loop: true,
+                        protect: true
+                    });
+                    
+                    // Refresh AOS
+                    AOS.refresh();
+                }, 300);
+            }
+
+            // Initial render
+            renderGallery('all');
+
+            // Filter button click event
+            $('.btn-gallery').on('click', function() {
+                const category = $(this).data('filter');
+                
+                $('.btn-gallery').removeClass('active');
+                $(this).addClass('active');
+                
+                renderGallery(category);
+            });
+
+            // Handle window resize for responsive grid
+            $(window).on('resize', function() {
+                const currentCategory = $('.btn-gallery.active').data('filter');
+                renderGallery(currentCategory);
+            });
+
+            // Keyboard accessibility
+            $('.btn-gallery').on('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    $(this).click();
+                }
+            }).attr('tabindex', '0');
+        });
+    </script>
+</body>
+</html>
