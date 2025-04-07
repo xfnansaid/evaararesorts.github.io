@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Evaara Resorts | Munnar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Discover luxurious accommodations at Evaara Resorts in Munnar. Choose from deluxe rooms with mountain views, bachelor rooms, and more. Experience comfort at 3500 feet elevation with modern amenities and breathtaking scenery." />
+    <meta name="description" content="Discover luxurious accommodations at Evaara Resorts in Munnar. Choose from deluxe rooms with mountain views, bachelor rooms, and more. Experience comfort at 3000 feet elevation with modern amenities and breathtaking scenery." />
     <meta name="keywords" content="luxury rooms Munnar, Evaara Resorts accommodation, deluxe mountain view rooms, bachelor rooms Munnar, hill resort rooms, luxury hotel rooms Kerala, Munnar resort booking" />
     <meta name="author" content="Evaara Resorts" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
@@ -165,7 +165,7 @@
 </script>
     <!-- END head -->
 
-    <section class="site-hero inner-page overlay" style="background-image: url(img/32.webp)" data-stellar-background-ratio="0.5">
+    <section class="site-hero inner-page overlay" style="background-image: url(img/32.jpg)" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
           <div class="col-md-10 text-center" data-aos="fade">
@@ -187,24 +187,26 @@
     </section>
     <!-- END section -->
 
-    <section class="section pb-4">
+    <section class="section bg-light pb-0"  >
       <div class="container">
+       
         <div class="row check-availabilty" id="next">
           <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
-            <form action="#">
+
+            <form id="availabilityForm" onsubmit="return redirectToWhatsApp(event)">
               <div class="row">
                 <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                   <label for="checkin_date" class="font-weight-bold text-black">Check In</label>
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="icon-calendar"></span></div>
-                    <input type="text" id="checkin_date" class="form-control">
+                    <input type="text" id="checkin_date" class="form-control" required>
                   </div>
                 </div>
                 <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                   <label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="icon-calendar"></span></div>
-                    <input type="text" id="checkout_date" class="form-control">
+                    <input type="text" id="checkout_date" class="form-control" required>
                   </div>
                 </div>
                 <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
@@ -213,11 +215,11 @@
                       <label for="adults" class="font-weight-bold text-black">Adults</label>
                       <div class="field-icon-wrap">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="adults" class="form-control">
-                          <option value="">1</option>
-                          <option value="">2</option>
-                          <option value="">3</option>
-                          <option value="">4+</option>
+                        <select name="adults" id="adults" class="form-control" required>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4+">4+</option>
                         </select>
                       </div>
                     </div>
@@ -225,21 +227,57 @@
                       <label for="children" class="font-weight-bold text-black">Children</label>
                       <div class="field-icon-wrap">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="children" class="form-control">
-                          <option value="">1</option>
-                          <option value="">2</option>
-                          <option value="">3</option>
-                          <option value="">4+</option>
+                        <select name="children" id="children" class="form-control" required>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4+">4+</option>
                         </select>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-3 align-self-end">
-                  <button class="btn btn-primary btn-block text-white">Check Availability</button>
+                  <button type="submit" class="btn btn-primary btn-block text-white">Check Availability</button>
                 </div>
               </div>
             </form>
+            
+            <script>
+              function redirectToWhatsApp(event) {
+                event.preventDefault();
+                
+                // Get form values
+                const checkinDate = document.getElementById('checkin_date').value;
+                const checkoutDate = document.getElementById('checkout_date').value;
+                const adults = document.getElementById('adults').value;
+                const children = document.getElementById('children').value;
+                
+                // Validate form
+                if (!checkinDate || !checkoutDate || !adults) {
+                  alert('Please fill in all required fields');
+                  return false;
+                }
+                
+                // Create message for WhatsApp
+                const message = `Hello, I would like to check availability for:\n\n` +
+                               `Check-in: ${checkinDate}\n` +
+                               `Check-out: ${checkoutDate}\n` +
+                               `Adults: ${adults}\n` +
+                               `Children: ${children}\n\n` +
+                               `Please let me know if you have availability for these dates. Thank you!`;
+                
+                // Create WhatsApp URL with the message
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappURL = `https://wa.me/919544388665?text=${encodedMessage}`;
+                
+                // Redirect to WhatsApp
+                window.open(whatsappURL, '_blank');
+                
+                return false;
+              }
+            </script>
           </div>
         </div>
       </div>
@@ -266,15 +304,11 @@
                 <div class="slide">
                   <img src="img/40.webp" alt="Bachelor Room View">
                 </div>
-                <div class="slide">
-                  <img src="img/62.webp" alt="Bachelor Room Bathroom">
-                </div>
                 <div class="slideshow-controls">
                   <button class="prev-slide"><i class="fa fa-angle-left"></i></button>
                   <div class="slide-indicators">
                     <span class="indicator active" data-slide="0"></span>
                     <span class="indicator" data-slide="1"></span>
-                    <span class="indicator" data-slide="2"></span>
                   </div>
                   <button class="next-slide"><i class="fa fa-angle-right"></i></button>
                 </div>
@@ -298,7 +332,6 @@
                   <div class="amenity"><i class="fa fa-mountain"></i> Valley View</div>
                   <div class="amenity"><i class="fa fa-wifi"></i> Free Wi-Fi</div>
                   <div class="amenity"><i class="fa fa-snowflake-o"></i> AC</div>
-                  <div class="amenity"><i class="fa fa-coffee"></i> Coffee Maker</div>
                   <div class="amenity"><i class="fa fa-bath"></i> Private Bath</div>
                 </div>
               </div>
@@ -350,7 +383,6 @@
                 
                 <div class="room-amenities">
                   <div class="amenity"><i class="fa fa-bed"></i> King Bed</div>
-                  <div class="amenity"><i class="fa fa-coffee"></i> Mini Bar</div>
                   <div class="amenity"><i class="fa fa-bath"></i> Luxury Bath</div>
                   <div class="amenity"><i class="fa fa-snowflake-o"></i> AC</div>
                   <div class="amenity"><i class="fa fa-tv"></i> Smart TV</div>
@@ -888,7 +920,6 @@
               <div class="gallery-main">
                 <img src="img/38.webp" alt="Bachelor Suite" class="active">
                 <img src="img/40.webp" alt="Bachelor Suite View">
-                <img src="img/62.webp" alt="Bachelor Suite Bathroom">
               </div>
               <div class="gallery-thumbs">
                 <div class="thumb active" data-index="0">
@@ -896,9 +927,6 @@
                 </div>
                 <div class="thumb" data-index="1">
                   <img src="img/40.webp" alt="Bachelor Suite View">
-                </div>
-                <div class="thumb" data-index="2">
-                  <img src="img/62.webp" alt="Bachelor Suite Bathroom">
                 </div>
               </div>
             </div>
@@ -936,7 +964,6 @@
                   <div class="amenity-item"><i class="fa fa-wifi"></i> Free Wi-Fi</div>
                   <div class="amenity-item"><i class="fa fa-tv"></i> Smart TV</div>
                   <div class="amenity-item"><i class="fa fa-snowflake-o"></i> AC</div>
-                  <div class="amenity-item"><i class="fa fa-coffee"></i> Coffee Maker</div>
                   <div class="amenity-item"><i class="fa fa-bath"></i> Private Bath</div>
                   <div class="amenity-item"><i class="fa fa-mountain"></i> Valley View</div>
                 </div>
@@ -1001,7 +1028,6 @@
                   <div class="amenity-item"><i class="fa fa-wifi"></i> Free Wi-Fi</div>
                   <div class="amenity-item"><i class="fa fa-tv"></i> Smart TV</div>
                   <div class="amenity-item"><i class="fa fa-snowflake-o"></i> AC</div>
-                  <div class="amenity-item"><i class="fa fa-coffee"></i> Mini Bar</div>
                   <div class="amenity-item"><i class="fa fa-bath"></i> Luxury Bath</div>
                   <div class="amenity-item"><i class="fa fa-mountain"></i> Mountain View</div>
                 </div>
@@ -1458,7 +1484,7 @@
             </div>
             <div class="contact-details">
               <h4>Our Location</h4>
-              <p>Evaara Resorts, Eetti City, Anachal, Munnar, Kerala, India</p>
+              <p>Evaara Resorts, Kumminikkunnu Hill Top, Etticity, Near Anachal, Munnar, Kerala, India</p>
             </div>
           </div>
           
@@ -1502,8 +1528,8 @@
       
       <div class="col-lg-7 map-column">
         <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0655464647666!2d77.05921409999999!3d10.0114447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07990064e65129%3A0xb16b39094448424b!2sEVAARA%20RESORT!5e0!3m2!1sen!2sae!4v1743936337151!5m2!1sen!2sae" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>      </div>
-    </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3929.0628990242103!2d77.05669787503129!3d10.01166339009438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAwJzQyLjAiTiA3N8KwMDMnMzMuNCJF!5e0!3m2!1sen!2sae!4v1743967824724!5m2!1sen!2sae" width="700" height="630" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+        </div>
   </div>
 </section>
 
@@ -1662,65 +1688,69 @@
   </div>
 </section>
 
-  <footer class="premium-footer">
-<div class="container">
-  <div class="footer-top">
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="footer-brand">
-          <img src="img/Logo-kiki-removebg-preview.png" alt="Evaara Resorts" class="footer-logo">
-          <p>Every stay with us is a memorable experience</p>
+<footer class="premium-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <img src="img/Logo-kiki-removebg-preview.png" alt="Evaara Resorts" class="footer-logo">
+            <p>Every stay with us is a memorable experience</p>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/evaararesortsmunnar/"><i class="fa fa-instagram"></i></a>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/share/1EU9XUym3c/?mibextid=wwXIfr"><i class="fa fa-facebook"></i></a>
+          </div>
         </div>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/evaararesortsmunnar/"><i class="fa fa-instagram"></i></a>
-        </div>
-      </div>
-      
-      <div class="col-lg-2 col-md-4">
-        <h4>Explore</h4>
-        <ul class="footer-links">
-          <li><a href="rooms.html">Rooms</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      
-      <div class="col-lg-2 col-md-4">
-        <h4>Policies</h4>
-        <ul class="footer-links">
-          <li><a href="T&C.html">Terms & Conditions</a></li>
-          <li><a href="privacy.html#cancellation">Cancellation</a></li>
-        </ul>
-      </div>
-      
-      <div class="col-lg-4 col-md-4">
-        <h4>Contact</h4>
-        <ul class="footer-contact">
-          <li><i class="fa fa-map-marker"></i> Eetti City, Anachal, Munnar, Kerala</li>
-          <li><i class="fa fa-phone"></i> <a href="tel:+919544388665">+91 95443 88665</a></li>
-          <li><i class="fa fa-envelope"></i> <a href="mailto:evararesortsmunnar@gmail.com">evararesortsmunnar@gmail.com</a></li>
-        </ul>
         
-        <div class="footer-newsletter">
-          <h5>Subscribe to our newsletter</h5>
-          <form action="#">
-            <div class="input-group">
-              <input type="email" placeholder="Your email" required>
-              <button type="submit"><i class="fa fa-paper-plane"></i></button>
-            </div>
-          </form>
+        <div class="col-lg-2 col-md-4">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h4>Policies</h4>
+          <ul class="footer-links">
+            <li><a href="Privacy.html">Terms & Conditions</a></li>
+            <li><a href="cancellation.html">Cancellation</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4 col-md-4">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i class="fa fa-map-marker"></i> Kumminikkunnu Hill Top, Etticity, Near Anachal, Munnar, Kerala</li>
+            <li><i class="fa fa-phone"></i> <a href="tel:+919544388665">+91 95443 88665</a></li>
+            <li><i class="fa fa-envelope"></i> <a href="mailto:evararesortsmunnar@gmail.com">evararesortsmunnar@gmail.com</a></li>
+          </ul>
+          
+          <div class="footer-newsletter">
+            <h5>Subscribe to our newsletter</h5>
+            <form action="#">
+              <div class="input-group">
+                <input type="email" placeholder="Your email" required>
+                <button type="submit"><i class="fa fa-paper-plane"></i></button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  <div class="footer-bottom">
-    <div class="copyright">
-      &copy; <span id="current-year"></span> Evaara Resorts. All rights reserved.
+    
+    <div class="footer-bottom">
+      <div class="copyright">
+        &copy; <span id="current-year"></span> Evaara Resorts. All rights reserved.
+        <div class="developer-credit">Developed by <a href="https://www.instagram.com/xfn.an_said" target="_blank">Mohd Afnan</a></div>
+      </div>
     </div>
   </div>
-</div>
 </footer>
 
 <style>
