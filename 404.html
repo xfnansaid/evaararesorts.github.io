@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Not Found | Evaara Resorts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Page not found - Evaara Resorts in Munnar, Kerala. Return to our luxury mountain retreat at 3500 feet elevation." />
+    <meta name="description" content="Page not found - Evaara Resorts in Munnar, Kerala. Return to our luxury mountain retreat at 3000 feet elevation." />
     <meta name="author" content="Evaara Resorts | Munnar" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700|Montserrat:300,400,500,600">
 
@@ -391,6 +391,102 @@
       }
     </style>
 
+
+<section class="section bg-light pb-0"  >
+  <div class="container">
+   
+    <div class="row check-availabilty" id="next">
+      <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+
+        <form id="availabilityForm" onsubmit="return redirectToWhatsApp(event)">
+          <div class="row">
+            <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+              <label for="checkin_date" class="font-weight-bold text-black">Check In</label>
+              <div class="field-icon-wrap">
+                <div class="icon"><span class="icon-calendar"></span></div>
+                <input type="text" id="checkin_date" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+              <label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
+              <div class="field-icon-wrap">
+                <div class="icon"><span class="icon-calendar"></span></div>
+                <input type="text" id="checkout_date" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+              <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label for="adults" class="font-weight-bold text-black">Adults</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="adults" id="adults" class="form-control" required>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4+">4+</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label for="children" class="font-weight-bold text-black">Children</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="children" id="children" class="form-control" required>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4+">4+</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 align-self-end">
+              <button type="submit" class="btn btn-primary btn-block text-white">Check Availability</button>
+            </div>
+          </div>
+        </form>
+        
+        <script>
+          function redirectToWhatsApp(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const checkinDate = document.getElementById('checkin_date').value;
+            const checkoutDate = document.getElementById('checkout_date').value;
+            const adults = document.getElementById('adults').value;
+            const children = document.getElementById('children').value;
+            
+            // Validate form
+            if (!checkinDate || !checkoutDate || !adults) {
+              alert('Please fill in all required fields');
+              return false;
+            }
+            
+            // Create message for WhatsApp
+            const message = `Hello, I would like to check availability for:\n\n` +
+                           `Check-in: ${checkinDate}\n` +
+                           `Check-out: ${checkoutDate}\n` +
+                           `Adults: ${adults}\n` +
+                           `Children: ${children}\n\n` +
+                           `Please let me know if you have availability for these dates. Thank you!`;
+            
+            // Create WhatsApp URL with the message
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/919544388665?text=${encodedMessage}`;
+            
+            // Redirect to WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            return false;
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- Footer -->
     <section class="section bg-image overlay" style="background-image: url('img/37.webp');">
         <div class="container" >
@@ -405,265 +501,269 @@
         </div>
       </section>
 
-        <footer class="premium-footer">
-      <div class="container">
-        <div class="footer-top">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="footer-brand">
-                <img src="img/Logo-kiki-removebg-preview.png" alt="Evaara Resorts" class="footer-logo">
-                <p>Every stay with us is a memorable experience</p>
+      <footer class="premium-footer">
+        <div class="container">
+          <div class="footer-top">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="footer-brand">
+                  <img src="img/Logo-kiki-removebg-preview.png" alt="Evaara Resorts" class="footer-logo">
+                  <p>Every stay with us is a memorable experience</p>
+                </div>
+                <div class="footer-social">
+                  <a href="https://www.instagram.com/evaararesortsmunnar/"><i class="fa fa-instagram"></i></a>
+                </div>
+                <div class="footer-social">
+                  <a href="https://www.facebook.com/share/1EU9XUym3c/?mibextid=wwXIfr"><i class="fa fa-facebook"></i></a>
+                </div>
               </div>
-              <div class="footer-social">
-                <a href="https://www.instagram.com/evaararesortsmunnar/"><i class="fa fa-instagram"></i></a>
-              </div>
-            </div>
-            
-            <div class="col-lg-2 col-md-4">
-              <h4>Explore</h4>
-              <ul class="footer-links">
-                <li><a href="rooms.html">Rooms</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </div>
-            
-            <div class="col-lg-2 col-md-4">
-              <h4>Policies</h4>
-              <ul class="footer-links">
-                <li><a href="T&C.html">Terms & Conditions</a></li>
-                <li><a href="privacy.html#cancellation">Cancellation</a></li>
-              </ul>
-            </div>
-            
-            <div class="col-lg-4 col-md-4">
-              <h4>Contact</h4>
-              <ul class="footer-contact">
-                <li><i class="fa fa-map-marker"></i> Eetti City, Anachal, Munnar, Kerala</li>
-                <li><i class="fa fa-phone"></i> <a href="tel:+919544388665">+91 95443 88665</a></li>
-                <li><i class="fa fa-envelope"></i> <a href="mailto:evararesortsmunnar@gmail.com">evararesortsmunnar@gmail.com</a></li>
-              </ul>
               
-              <div class="footer-newsletter">
-                <h5>Subscribe to our newsletter</h5>
-                <form action="#">
-                  <div class="input-group">
-                    <input type="email" placeholder="Your email" required>
-                    <button type="submit"><i class="fa fa-paper-plane"></i></button>
-                  </div>
-                </form>
+              <div class="col-lg-2 col-md-4">
+                <h4>Explore</h4>
+                <ul class="footer-links">
+                  <li><a href="rooms.html">Rooms</a></li>
+                  <li><a href="gallery.html">Gallery</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+              
+              <div class="col-lg-2 col-md-4">
+                <h4>Policies</h4>
+                <ul class="footer-links">
+                  <li><a href="Privacy.html">Terms & Conditions</a></li>
+                  <li><a href="cancellation.html">Cancellation</a></li>
+                </ul>
+              </div>
+              
+              <div class="col-lg-4 col-md-4">
+                <h4>Contact</h4>
+                <ul class="footer-contact">
+                  <li><i class="fa fa-map-marker"></i> Kumminikkunnu Hill Top, Etticity, Near Anachal, Munnar, Kerala</li>
+                  <li><i class="fa fa-phone"></i> <a href="tel:+919544388665">+91 95443 88665</a></li>
+                  <li><i class="fa fa-envelope"></i> <a href="mailto:evararesortsmunnar@gmail.com">evararesortsmunnar@gmail.com</a></li>
+                </ul>
+                
+                <div class="footer-newsletter">
+                  <h5>Subscribe to our newsletter</h5>
+                  <form action="#">
+                    <div class="input-group">
+                      <input type="email" placeholder="Your email" required>
+                      <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        <div class="footer-bottom">
-          <div class="copyright">
-            &copy; <span id="current-year"></span> Evaara Resorts. All rights reserved.
+          
+          <div class="footer-bottom">
+            <div class="copyright">
+              &copy; <span id="current-year"></span> Evaara Resorts. All rights reserved.
+              <div class="developer-credit">Developed by <a href="https://www.instagram.com/xfn.an_said" target="_blank">Mohd Afnan</a></div>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
-
-    <style>
-      .premium-footer {
-        background-color: #2c2c2c;
-        color: #fff;
-        padding: 70px 0 20px;
-        font-family: 'Open Sans', sans-serif;
-      }
-      
-      .footer-top {
-        margin-bottom: 40px;
-      }
-      
-      .footer-brand {
-        margin-bottom: 25px;
-      }
-      
-      .footer-logo {
-        height: 50px;
-        margin-bottom: 15px;
-      }
-      
-      .footer-brand p {
-        color: #ccc;
-        font-size: 14px;
-        line-height: 1.6;
-      }
-      
-      .footer-social {
-        margin-top: 20px;
-      }
-      
-      .footer-social a {
-        display: inline-block;
-        width: 36px;
-        height: 36px;
-        background-color: rgba(255,255,255,0.1);
-        color: #fff;
-        border-radius: 50%;
-        text-align: center;
-        line-height: 36px;
-        margin-right: 10px;
-        transition: all 0.3s ease;
-      }
-      
-      .footer-social a:hover {
-        background-color: #41963B;
-        transform: translateY(-3px);
-      }
-      
-      .premium-footer h4 {
-        color: #fff;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        position: relative;
-        padding-bottom: 10px;
-      }
-      
-      .premium-footer h4:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 30px;
-        height: 2px;
-        background-color: #41963B;
-      }
-      
-      .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      
-      .footer-links li {
-        margin-bottom: 10px;
-      }
-      
-      .footer-links a {
-        color: #ccc;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        font-size: 14px;
-      }
-      
-      .footer-links a:hover {
-        color: #41963B;
-        padding-left: 5px;
-      }
-      
-      .footer-contact {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      
-      .footer-contact li {
-        margin-bottom: 15px;
-        color: #ccc;
-        font-size: 14px;
-        display: flex;
-        align-items: flex-start;
-      }
-      
-      .footer-contact li i {
-        color: #41963B;
-        margin-right: 10px;
-        font-size: 16px;
-        width: 16px;
-      }
-      
-      .footer-contact a {
-        color: #ccc;
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-      
-      .footer-contact a:hover {
-        color: #41963B;
-      }
-      
-      .footer-newsletter {
-        margin-top: 25px;
-      }
-      
-      .footer-newsletter h5 {
-        font-size: 14px;
-        margin-bottom: 15px;
-        color: #fff;
-      }
-      
-      .footer-newsletter .input-group {
-        display: flex;
-        position: relative;
-      }
-      
-      .footer-newsletter input {
-        height: 40px;
-        background-color: rgba(255,255,255,0.1);
-        border: none;
-        color: #fff;
-        padding: 0 15px;
-        width: 100%;
-        border-radius: 4px 0 0 4px;
-      }
-      
-      .footer-newsletter input:focus {
-        outline: none;
-      }
-      
-      .footer-newsletter input::placeholder {
-        color: #aaa;
-      }
-      
-      .footer-newsletter button {
-        background-color: #41963B;
-        border: none;
-        color: #fff;
-        height: 40px;
-        width: 40px;
-        border-radius: 0 4px 4px 0;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      
-      .footer-newsletter button:hover {
-        background-color: #357a30;
-      }
-      
-      .footer-bottom {
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding-top: 20px;
-        text-align: center;
-      }
-      
-      .copyright {
-        color: #aaa;
-        font-size: 13px;
-      }
-      
-      @media (max-width: 991px) {
-        .premium-footer h4 {
-          margin-top: 30px;
+      </footer>
+  
+      <style>
+        .premium-footer {
+          background-color: #2c2c2c;
+          color: #fff;
+          padding: 70px 0 20px;
+          font-family: 'Open Sans', sans-serif;
+        }
+        
+        .footer-top {
+          margin-bottom: 40px;
         }
         
         .footer-brand {
-          text-align: center;
+          margin-bottom: 25px;
+        }
+        
+        .footer-logo {
+          height: 50px;
+          margin-bottom: 15px;
+        }
+        
+        .footer-brand p {
+          color: #ccc;
+          font-size: 14px;
+          line-height: 1.6;
         }
         
         .footer-social {
+          margin-top: 20px;
+        }
+        
+        .footer-social a {
+          display: inline-block;
+          width: 36px;
+          height: 36px;
+          background-color: rgba(255,255,255,0.1);
+          color: #fff;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 36px;
+          margin-right: 10px;
+          transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+          background-color: #41963B;
+          transform: translateY(-3px);
+        }
+        
+        .premium-footer h4 {
+          color: #fff;
+          font-size: 18px;
+          font-weight: 600;
+          margin-bottom: 20px;
+          position: relative;
+          padding-bottom: 10px;
+        }
+        
+        .premium-footer h4:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 30px;
+          height: 2px;
+          background-color: #41963B;
+        }
+        
+        .footer-links {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .footer-links li {
+          margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+          color: #ccc;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+          color: #41963B;
+          padding-left: 5px;
+        }
+        
+        .footer-contact {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .footer-contact li {
+          margin-bottom: 15px;
+          color: #ccc;
+          font-size: 14px;
+          display: flex;
+          align-items: flex-start;
+        }
+        
+        .footer-contact li i {
+          color: #41963B;
+          margin-right: 10px;
+          font-size: 16px;
+          width: 16px;
+        }
+        
+        .footer-contact a {
+          color: #ccc;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        
+        .footer-contact a:hover {
+          color: #41963B;
+        }
+        
+        .footer-newsletter {
+          margin-top: 25px;
+        }
+        
+        .footer-newsletter h5 {
+          font-size: 14px;
+          margin-bottom: 15px;
+          color: #fff;
+        }
+        
+        .footer-newsletter .input-group {
+          display: flex;
+          position: relative;
+        }
+        
+        .footer-newsletter input {
+          height: 40px;
+          background-color: rgba(255,255,255,0.1);
+          border: none;
+          color: #fff;
+          padding: 0 15px;
+          width: 100%;
+          border-radius: 4px 0 0 4px;
+        }
+        
+        .footer-newsletter input:focus {
+          outline: none;
+        }
+        
+        .footer-newsletter input::placeholder {
+          color: #aaa;
+        }
+        
+        .footer-newsletter button {
+          background-color: #41963B;
+          border: none;
+          color: #fff;
+          height: 40px;
+          width: 40px;
+          border-radius: 0 4px 4px 0;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        
+        .footer-newsletter button:hover {
+          background-color: #357a30;
+        }
+        
+        .footer-bottom {
+          border-top: 1px solid rgba(255,255,255,0.1);
+          padding-top: 20px;
           text-align: center;
         }
-      }
-    </style>
-    
-    <script>
-      document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+        
+        .copyright {
+          color: #aaa;
+          font-size: 13px;
+        }
+        
+        @media (max-width: 991px) {
+          .premium-footer h4 {
+            margin-top: 30px;
+          }
+          
+          .footer-brand {
+            text-align: center;
+          }
+          
+          .footer-social {
+            text-align: center;
+          }
+        }
+      </style>
+      
+      <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+      </script>
 
     <script>
       document.getElementById('current-year').textContent = new Date().getFullYear();
