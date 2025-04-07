@@ -40,6 +40,7 @@
 /* Mountain Animation */
 .preloader-mountains {
   position: relative;
+  padding-top: 30%;
   width: 150px;
   height: 80px;
   margin-bottom: 20px;
@@ -283,6 +284,6 @@
   }
   
   .loading-text {
-    font-size: 14px;
+    font-size: 10px;
   }
 }
