@@ -23,9 +23,9 @@
     <link rel="stylesheet" href="css/preloader.css">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="img\Logo-kiki-removebg-preview.png">
-    <link rel="icon" type="image/svg+xml" href="img\Logo-kiki-removebg-preview.png">
-    <link rel="shortcut icon" href="img\Logo-kiki-removebg-preview.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/Logo-kiki-removebg-preview.png">
+    <link rel="icon" type="image/svg+xml" href="img/Logo-kiki-removebg-preview.png">
+    <link rel="shortcut icon" href="img/Logo-kiki-removebg-preview.png">
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
@@ -35,7 +35,7 @@
     <!-- Preloader -->
     <div class="preloader">
       <div class="preloader-content">
-        <img src="img\Logo-kiki-removebg-preview.png" alt="Evaara Resorts" class="preloader-logo">
+        <img src="img/Logo-kiki-removebg-preview.png" alt="Evaara Resorts" class="preloader-logo">
         <div class="preloader-mountains">
           <div class="mountain mountain-1"></div>
           <div class="mountain mountain-2"></div>
@@ -65,7 +65,7 @@
           <!-- Logo -->
           <div class="col-6 col-lg-4 site-logo" data-aos="fade">
             <a href="index.html">
-              <img src="img\Logo-kiki-removebg-preview.png" alt="Evaara Resorts Logo" style="width: 100px; height: 50px;" class="header-logo">
+              <img src="img/Logo-kiki-removebg-preview.png" alt="Evaara Resorts Logo" style="width: 100px; height: 50px;" class="header-logo">
             </a>
           </div>
     
@@ -383,6 +383,303 @@
     </div>
   </div>
 </section>
+
+<!-- Interactive Map & Nearby Attractions Section -->
+<section class="interactive-map-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <h2 class="section-title" style="color:#41963B;font-family:'Playfair Display',serif;">Nearby Attractions</h2>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-12">
+        <div id="evaara-map" style="width:100%;height:450px;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.1);"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Map Styles -->
+<style>
+  .gm-style .gm-style-iw-c {
+    padding: 0 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15) !important;
+    overflow: hidden !important;
+  }
+  
+  .gm-style .gm-style-iw-d {
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+  
+  .attraction-info-window {
+    max-width: 280px;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  
+  .attraction-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .attraction-content {
+    padding: 15px;
+    background: #fff;
+  }
+  
+  .attraction-title {
+    color: #41963B;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .attraction-description {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  
+  .attraction-distance {
+    font-size: 12px;
+    color: #777;
+    display: flex;
+    align-items: center;
+  }
+  
+  .attraction-distance i {
+    margin-right: 5px;
+    color: #41963B;
+  }
+  
+  .interactive-map-section {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .interactive-map-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(65, 150, 59, 0.05), transparent);
+    z-index: -1;
+  }
+</style>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3cGevohcLHAIEHh4rcKO6qZKXAbUmMXw"></script>
+<script>
+  function initEvaaraMap() {
+    var resortLatLng = { lat: 10.011667, lng: 77.059278 }; // Evaara Resorts, Munnar
+    var attractions = [
+      {
+        position: { lat: 10.011667, lng: 77.059278 },
+        title: "Evaara Resorts",
+        description: "Luxury stay in the serene hills of Munnar with breathtaking views and premium amenities.",
+        distance: "You are here",
+        image: "img/32.webp"
+      },
+      {
+    position: { lat: 10.0961, lng: 77.0595 },
+    title: "Tea Estate Viewpoint",
+    description: "Scenic views of lush tea plantations stretching across the rolling hills of Munnar.",
+    distance: "0.8 km",
+    image: "https://www.keralatourism.holiday/blog/wp-content/uploads/2023/03/munnar-tea-plantation.jpg"
+  },
+  {
+    position: { lat: 10.080648, lng: 77.066131 },
+    title: "Attukad Waterfalls",
+    description: "Popular spot for nature lovers and photographers with cascading waters and lush surroundings.",
+    distance: "2.3 km",
+    image: "https://www.ourmunnartrip.com/upload_pic/destinations/gallery/attukad-waterfalls-munnar-bridge-vew.webp"
+  },
+  {
+    position: { lat: 10.056145, lng: 77.061949 },
+    title: "Pothamedu View Point",
+    description: "Panoramic views of Munnar's valleys and hills, perfect for sunrise and sunset viewing.",
+    distance: "1.5 km",
+    image: "https://www.explorebees.com/uploads/Pothamedu%20Viewpoint%20(1).jpg"
+  },
+  {
+    position: { lat: 10.085556, lng: 77.061389 },
+    title: "Blossom Hydel Park",
+    description: "Beautiful park with gardens, play areas, and boating facilities for a relaxing day out.",
+    distance: "2.8 km",
+    image: "https://www.tourmyindia.com/states/kerala/images/Blossom-Hydel-Park-Munnar-1.jpg"
+  },
+  {
+    position: { lat: 10.089444, lng: 77.058611 },
+    title: "Kannan Devan Tea Museum",
+    description: "Learn about Munnar's tea history and processing methods with interactive exhibits and tastings.",
+    distance: "1.7 km",
+    image: "https://www.tourmyindia.com/states/kerala/images/Kannan-Devan-Tea-Museum-Munnar-4.jpg"
+  },
+  {
+    position: { lat: 10.0889, lng: 77.0750 },
+    title: "Ripple Waterfalls",
+    description: "Hidden gem with tranquil surroundings, perfect for a peaceful retreat from the crowds.",
+    distance: "1.7 km",
+    image: "https://media1.thrillophilia.com/filestore/mh0isa1pp1viq9tcf5cpcg98r3u1_gfghfdsgk.webp"
+  },
+  {
+    position: { lat: 10.052778, lng: 77.047222 },
+    title: "Dream Land Adventure Park",
+    description: "Fun-filled park with adventure activities for all ages including zip-lining and rock climbing.",
+    distance: "3.8 km",
+    image: "https://munnartourism.co.in/images/places-to-visit/headers/dreamland-fun-and-adventure-park-munnar-header-munnar-tourism.jpg.jpg"
+  },
+  {
+    position: { lat: 10.088333, lng: 77.058889 },
+    title: "Carmelagiri Elephant Park",
+    description: "Experience elephant rides and learn about their care and conservation efforts in Kerala.",
+    distance: "0.7 km",
+    image: "https://www.sterlingholidays.com/blog/wp-content/uploads/2018/02/carmelagiri-elephant-park.jpg"
+  }
+    ];
+    
+    // Custom map style with richer colors and better contrast
+    var mapStyles = [
+      { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] },
+      { elementType: 'labels.text.fill', stylers: [{ color: '#41963B' }] },
+      { elementType: 'labels.text.stroke', stylers: [{ color: '#ffffff' }] },
+      { featureType: 'administrative', elementType: 'geometry.stroke', stylers: [{ color: '#c9b2a6' }] },
+      { featureType: 'administrative.land_parcel', elementType: 'geometry.stroke', stylers: [{ color: '#dcd2be' }] },
+      { featureType: 'administrative.land_parcel', elementType: 'labels.text.fill', stylers: [{ color: '#ae9e90' }] },
+      { featureType: 'landscape.natural', elementType: 'geometry', stylers: [{ color: '#e8f5e9' }] },
+      { featureType: 'poi', elementType: 'geometry', stylers: [{ color: '#dfd2ae' }] },
+      { featureType: 'poi', elementType: 'labels.text.fill', stylers: [{ color: '#93817c' }] },
+      { featureType: 'poi.park', elementType: 'geometry.fill', stylers: [{ color: '#c5e1a5' }] },
+      { featureType: 'poi.park', elementType: 'labels.text.fill', stylers: [{ color: '#447530' }] },
+      { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#f5f1e6' }] },
+      { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#f8c967' }] },
+      { featureType: 'road.highway', elementType: 'geometry.stroke', stylers: [{ color: '#e9bc62' }] },
+      { featureType: 'road.arterial', elementType: 'geometry', stylers: [{ color: '#fdfcf8' }] },
+      { featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{ color: '#806b63' }] },
+      { featureType: 'transit.line', elementType: 'geometry', stylers: [{ color: '#dfd2ae' }] },
+      { featureType: 'transit.line', elementType: 'labels.text.fill', stylers: [{ color: '#8f7d77' }] },
+      { featureType: 'transit.line', elementType: 'labels.text.stroke', stylers: [{ color: '#ebe3cd' }] },
+      { featureType: 'transit.station', elementType: 'geometry', stylers: [{ color: '#dfd2ae' }] },
+      { featureType: 'water', elementType: 'geometry.fill', stylers: [{ color: '#b3e5fc' }] },
+      { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#92998d' }] }
+    ];
+
+    var map = new google.maps.Map(document.getElementById('evaara-map'), {
+      center: resortLatLng,
+      zoom: 13,
+      styles: mapStyles,
+      mapTypeControl: false,
+      streetViewControl: false,
+      fullscreenControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_BOTTOM
+      }
+    });
+    
+    var infoWindow = new google.maps.InfoWindow({
+      maxWidth: 300
+    });
+    
+    // Custom marker icon for resort
+    var resortIcon = {
+      url: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
+      scaledSize: new google.maps.Size(50, 50),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(25, 25)
+    };
+    
+    // Custom marker icon for attractions
+    var attractionIcon = {
+      url: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
+      scaledSize: new google.maps.Size(40, 40),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(20, 20)
+    };
+    
+    attractions.forEach(function(attraction) {
+      // Create the HTML content for the info window with enhanced styling
+      var contentString = `
+        <div class="attraction-info-window">
+          <img src="${attraction.image}" alt="${attraction.title}" class="attraction-image">
+          <div class="attraction-content">
+            <h3 class="attraction-title">${attraction.title}</h3>
+            <p class="attraction-description">${attraction.description}</p>
+            <div class="attraction-distance">
+              <i class="fas fa-map-marker-alt"></i> ${attraction.distance} from Evaara Resorts
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Use the resort icon for the resort marker, and attraction icon for all others
+      var markerIcon = attraction.title === "Evaara Resorts" ? resortIcon : attractionIcon;
+      
+      var marker = new google.maps.Marker({
+        position: attraction.position,
+        map: map,
+        title: attraction.title,
+        icon: markerIcon,
+        animation: google.maps.Animation.DROP
+      });
+      
+
+      
+      marker.addListener('click', function() {
+        infoWindow.setContent(contentString);
+        infoWindow.open(map, marker);
+      });
+    });
+    
+    // Responsive map: re-center on window resize
+    google.maps.event.addDomListener(window, 'resize', function() {
+      map.setCenter(resortLatLng);
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof google !== 'undefined') {
+      initEvaaraMap();
+    }
+  });
+</script>
+
+<style>
+  .interactive-map-section {
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+  }
+  .interactive-map-section .section-title {
+    font-family: 'Playfair Display', serif;
+    color: #41963B;
+    margin-bottom: 0.5rem;
+  }
+  .interactive-map-section .section-subtitle {
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  #evaara-map {
+    box-shadow: 0 4px 24px rgba(65,150,59,0.08);
+    border: 2px solid #41963B;
+    min-height: 320px;
+    max-height: 500px;
+    background: #e9f5e1;
+  }
+  @media (max-width: 767px) {
+    #evaara-map {
+      min-height: 220px;
+      height: 220px;
+    }
+  }
+</style>
 
 <!-- Amenities Section - 4x2 grid layout -->
 <section class="amenities-section py-5">
@@ -885,12 +1182,17 @@
               <div class="restaurant-hours" data-aos="fade-up" data-aos-delay="300">
                 <div class="hours-box">
                   <div class="hours-title">BREAKFAST</div>
-                  <div class="hours-time">7:30 AM - 10:30 AM</div>
+                  <div class="hours-time">8:00 AM - 10:00 AM</div>
                 </div>
                 <div class="hours-divider"></div>
                 <div class="hours-box">
-                  <div class="hours-title">LUNCH & DINNER</div>
-                  <div class="hours-time">11:30 AM - 10:30 PM</div>
+                  <div class="hours-title">LUNCH</div>
+                  <div class="hours-time">12:00 PM - 2:00 PM</div>
+                </div>
+                <div class="hours-divider"></div>
+                <div class="hours-box">
+                  <div class="hours-title">DINNER</div>
+                  <div class="hours-time">8:00 PM - 9:30 PM</div>
                 </div>
               </div>
             </div>
@@ -1133,7 +1435,7 @@
           <div class="row">
             <div class="col-lg-4">
               <div class="footer-brand">
-                <img src="img\Logo-kiki-removebg-preview.png" alt="Evaara Resorts" class="footer-logo">
+                <img src="img/Logo-kiki-removebg-preview.png" alt="Evaara Resorts" class="footer-logo">
                 <p>Every stay with us is a memorable experience</p>
               </div>
               <div class="footer-social">
